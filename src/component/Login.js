@@ -1,15 +1,11 @@
 import React from 'react';
-import io from 'socket.io-client';
 import {Container,Col,Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image'
-import {IoIosCheckmark} from "react-icons/io";
-import { IoIosAperture } from "react-icons/io";
-import {BrowserRouter,Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal'
 import {Form} from 'react-bootstrap'
-import {Redirect,useHistory} from 'react-router-dom';
 import {IoIosPerson} from 'react-icons/io';
 import rain from './images/rain.jpg';
 const axios = require('axios');
@@ -23,7 +19,6 @@ this.handleChange1=this.handleChange1.bind(this);
 this.handleChange2=this.handleChange2.bind(this);}
 
 handleSubmit(e,props){
-var id=this.state.name;
 e.preventDefault();
 this.setState({validated:true})
 var form=e.currentTarget;
@@ -37,7 +32,7 @@ if(form.checkValidity()===false){
       pass: this.state.pass
     }).then((response)=> {
       console.log(response);
-    if(response.data.status=="verified"){
+    if(response.data.status==="verified"){
       console.log("verified",response.data.id);
     props.handler(response.data.id);
   } else {

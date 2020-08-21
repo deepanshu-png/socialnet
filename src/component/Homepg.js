@@ -15,7 +15,6 @@ import Card from 'react-bootstrap/Card'
 import Message from './Message.js'
 import Setting from './Settings.js'
 import CreatePost from './CreatePost.js'
-import leaf from './images/leaf.jpg';
 import FriendsPost from './FriendsPost.js'
 import {
   BrowserRouter as Router,
@@ -186,9 +185,9 @@ console.log(this.props);
 </Switch>
 
   </Col></Router>
-<Col style={this.state.style} md={2} sm={2} xs={3}style={
+<Col md={2} sm={2} xs={3} style={[this.state.style,
         {display:this.state.display,marginLeft:"2%"}
-      }
+      ]}
       className={this.state.screen}>
       <Message id={this.props.id} message={this.newMessage} /></Col></Row>
       <div className="fixed-bottom"><button onClick={this.msg} style={{display:this.state.button}}>Button</button></div>

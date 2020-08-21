@@ -38,7 +38,6 @@ class Message extends React.Component {
   console.log(this.state.screen,window.innerWidth,"if")
   }
  else  {console.log(this.state.screen,window.innerWidth,"else"); this.setState({popover:"left"})}
-  var id=this.state.id
   if(localStorage.fetch!==1){socket.emit("/friends",this.state.id);
   socket.on("friends",(res)=>{
   var i=0;

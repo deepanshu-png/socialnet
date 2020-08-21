@@ -16,7 +16,6 @@ this.handleSubmit=this.handleSubmit.bind(this);
 this.handleChange1=this.handleChange1.bind(this);
 this.handleChange2=this.handleChange2.bind(this);}
 handleSubmit(e,props){
-var id=this.state.name;
 const form = e.currentTarget;
 if (form.checkValidity()===false) {console.log("here");
 e.preventDefault();

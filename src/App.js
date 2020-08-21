@@ -21,7 +21,7 @@ class App extends React.Component {
 
 constructor(props) {
   super(props);
-   this.state={authenticated:false,id:'',type:"hidden",message:'',notification:localStorage.notification,message:false,number:2}
+   this.state={authenticated:false,id:'',type:"hidden",notification:localStorage.notification,message:false,number:2}
    this.handler=this.handler.bind(this)
    this.handleClick=this.handleClick.bind(this)
    }

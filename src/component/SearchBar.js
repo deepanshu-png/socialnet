@@ -63,12 +63,12 @@ constructor(props) {
      this.setState({search:false})
    }
    else {
-     {
+
        this.setState({
          search:true
        });
        socket.emit('search',event.target.value)
-     }
+     
    }
  }
    blur()
