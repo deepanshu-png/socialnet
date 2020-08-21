@@ -518,5 +518,5 @@ process.env.REACT_APP_PUBLIC_URL="hello"
 console.log("process",process.env.REACT_APP_PUBLIC_URL);
 
   http.listen(8000,addresses[0], function() {  //,'192.168.1.18'
-    console.log('listening on'+addresses[0]+':3000');
+    console.log('listening on'+addresses[0]+':8000');
   });
