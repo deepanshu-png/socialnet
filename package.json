@@ -17,7 +17,17 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "nodemon":"",
+    "express":"",
+    "body-parser":"",
+    "multer":"",
+    "socket.io":"",
+    "path":"",
+    "cookie-parser":"",
+    "fs":"",
+    "dotenv":""
+    
   },
   "scripts": {
     "start": "react-scripts start",
