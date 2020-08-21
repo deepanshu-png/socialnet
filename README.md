@@ -1,3 +1,10 @@
+Follow below sequence:-<br />
+Run npm install<br />
+Start MongoDB server<br />
+Run nodemon server.js<br />
+Run npm start or npm build<br />
+If running npm build, please make sure to update .env file with your ip and port address.<br />To know your ip, run 'nodemon server.js' in terminal in this project folder directory.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
