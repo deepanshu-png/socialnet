@@ -1,11 +1,9 @@
 import React from 'react';
-import Image from 'react-bootstrap/Image'
 import {Container,Col,Row} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import Badge from 'react-bootstrap/Badge'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {IoIosCheckmark} from "react-icons/io";
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +17,7 @@ class App extends React.Component {
 
     this.props.socket.emit('chat',{id:props.id.sender,name:localStorage.name,id2:localStorage.id})
     this.props.socket.on('typing',data=>{
-      if (data.id==this.props.id.sender&&data.id2==localStorage.id) {
+      if (data.id===this.props.id.sender&&data.id2===localStorage.id) {
 
         this.setState({
           typing1:data.data
@@ -27,7 +25,7 @@ class App extends React.Component {
       }
     })
       this.props.socket.on('message',data=>
-      {if (data.id==this.props.id.sender&&data.id2==localStorage.id) {
+      {if (data.id===this.props.id.sender&&data.id2===localStorage.id) {
         var element=<><h5><Badge variant="success" style={{float:"left"}}>{data.data}</Badge></h5><br></br><br></br></>;
         this.setState({elem:[...this.state.elem,element]})
       }
@@ -43,7 +41,7 @@ class App extends React.Component {
 
   handleSubmit1(event) {
     //alert('A name was submitted: ' + this.state.value);
-    if(this.state.text==null){this.setState({text:this.state.value})} else{
+    if(this.state.text===null){this.setState({text:this.state.value})} else{
     this.setState({text: this.state.value1})}					//don't take input from text
 var element=<><h5><Badge variant="primary" style={{float:"right",right:"0px",position:"absolute"}}>{this.state.value1}</Badge></h5><br></br><br></br></>;
   this.setState({elem:[...this.state.elem,element]})

@@ -1,12 +1,8 @@
 import React from 'react';
-import {Container,Col,Row,Form,FormControl} from 'react-bootstrap';
-
-import Badge from 'react-bootstrap/Badge';
-import Card from 'react-bootstrap/Card';
-
+import {Container,Col,Row,Form} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import ip from './ip.js';
 import axios from 'axios'
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 
 class createPost extends React.Component{
 constructor(props){
@@ -27,8 +23,6 @@ e.preventDefault();
 }
 
 render(){
-
-const pad={paddingTop:"0%"}
 
 return(<>
   <Container>

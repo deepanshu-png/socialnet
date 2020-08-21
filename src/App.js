@@ -1,32 +1,18 @@
 import React from 'react';
-import Image from 'react-bootstrap/Image'
-import {Container,Col,Row} from 'react-bootstrap';
-import {Button,ButtonGroup,DropdownButton,Dropdown} from 'react-bootstrap';
-import Badge from 'react-bootstrap/Badge'
-import Post from './component/Post.js'
-import User from './component/User.js'
+
+
+import {Button,ButtonGroup} from 'react-bootstrap';
 import Signup from './component/Signup.js'
-import Profile from './component/Profile.js'
 import Login from './component/Login.js'
 import Homepg from './component/Homepg.js'
-import SearchBar from './component/SearchBar.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import InputGroup from 'react-bootstrap/InputGroup'
-import axios from 'axios'
 import {Navbar,Nav} from 'react-bootstrap'
-import {IoMdBulb,IoIosMailUnread,IoIosSettings} from "react-icons/io";
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useRouteMatch,
-  useParams,
-  Redirect,
-  useHistory,
-  HashRouter
+  Redirect
 } from "react-router-dom";
-import Message from './component/Message.js'
 import io from 'socket.io-client';
 import ip from './component/ip.js';
 const socket = io('http://'+ip.ip+':'+ip.PORT);
@@ -85,13 +71,13 @@ constructor(props) {
 }
 `}
 
-</style><div style={{marginTop:"50px",backgroundColor:localStorage.verified=="true"?"white":"black",height:"1000px",overflow:"hidden"}}><Navbar fixed="top" style={{background:"linear-gradient(25deg,#000411,Blue)"}} variant="dark">
+</style><div style={{marginTop:"50px",backgroundColor:localStorage.verified==="true"?"white":"black",height:"1000px",overflow:"hidden"}}><Navbar fixed="top" style={{background:"linear-gradient(25deg,#000411,Blue)"}} variant="dark">
    <div style={{borderStyle:"double"}}> <Navbar.Brand href="#home"><b>&nbsp;&nbsp;SocialNet</b></Navbar.Brand></div>
     <Nav className="mr-auto">
       <Nav.Link href="#home">Home</Nav.Link>
 
     </Nav>
-     {this.state.authenticated=="true" ?<>
+     {this.state.authenticated==="true" ?<>
     </>:<ButtonGroup  variant="primary"><Link to='/login'><Button>Login</Button></Link><Link to='/signup'><Button >SignUp</Button></Link></ButtonGroup>
 }
 
@@ -99,11 +85,11 @@ constructor(props) {
 
      <Switch>
           <Route exact path='/'>
-           {localStorage.verified=="true" ?<Redirect to="/dashboard"  />:<Redirect to='/login'/>}
+           {localStorage.verified==="true" ?<Redirect to="/dashboard"  />:<Redirect to='/login'/>}
           </Route>
-          {localStorage.verified=="true"?<Route  exact path="/dashboard" component={Homepage} />:''}
+          {localStorage.verified==="true"?<Route  exact path="/dashboard" component={Homepage} />:''}
 
-          {localStorage.verified!="true"?<Route exact path="/login" component={MyLogin} />:<Redirect to="/dashboard"  />}
+          {localStorage.verified!=="true"?<Route exact path="/login" component={MyLogin} />:<Redirect to="/dashboard"  />}
           <Route exact path="/signup">
           <Signup handler={this.handler} />
         </Route>

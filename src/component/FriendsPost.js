@@ -1,16 +1,14 @@
 import React from 'react';
-import {Container,Col,Row,Form,FormControl} from 'react-bootstrap';
-import {IoMdThumbsUp,IoMdText,IoIosShareAlt,IoMdTrash} from 'react-icons/io';
+import {Col,Row} from 'react-bootstrap';
+import {IoMdThumbsUp,IoMdText,IoIosShareAlt} from 'react-icons/io';
 import Card from 'react-bootstrap/Card'
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import {Tooltip,OverlayTrigger} from 'react-bootstrap'
-import Modal from 'react-bootstrap/Modal'
+import {Tooltip} from 'react-bootstrap'
 import Comment from './Comment.js'
-import ip from './ip.js';
 import axios from 'axios'
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 
 class FriendsPost extends React.Component{
 constructor(props){
@@ -25,7 +23,7 @@ componentDidMount(){
 
 axios.get("http://"+ip.ip+":"+ip.PORT+"/"+localStorage.id+"/getfriendspost").then(res=>{
   console.log("data is",res.data);
-if(res.data=="null"){
+if(res.data==="null"){
   console.log("here");
   this.setState({
     post:null

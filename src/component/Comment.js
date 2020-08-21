@@ -4,9 +4,9 @@ import Image from 'react-bootstrap/Image'
 import Card from 'react-bootstrap/Card'
 import {IoIosPaperPlane} from "react-icons/io"
 import axios from 'axios'
-import Button from 'react-bootstrap/Button';
 import {Form,FormControl} from 'react-bootstrap'
-import ip from './ip.js';
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
+
 class Comment extends React.Component{
 constructor(props)
 {

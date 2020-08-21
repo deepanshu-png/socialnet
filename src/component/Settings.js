@@ -4,8 +4,8 @@ import Figure from 'react-bootstrap/Figure'
 import axios from 'axios'
 import {IoIosBrush} from 'react-icons/io'
 import {Form} from 'react-bootstrap'
-import ip from './ip.js'
 import {Container,Col,Row} from 'react-bootstrap';
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 
 class Setting extends React.Component {
   constructor(props){
@@ -23,7 +23,7 @@ class Setting extends React.Component {
     });
   }
   handleClick(e){
-    
+
     const formData = new FormData();
 
       // Update the formData object

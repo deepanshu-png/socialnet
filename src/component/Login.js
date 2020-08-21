@@ -11,9 +11,9 @@ import Modal from 'react-bootstrap/Modal'
 import {Form} from 'react-bootstrap'
 import {Redirect,useHistory} from 'react-router-dom';
 import {IoIosPerson} from 'react-icons/io';
-import ip from './ip.js';
 import rain from './images/rain.jpg';
 const axios = require('axios');
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 
 class Login extends React.Component{
 constructor(props){super(props);

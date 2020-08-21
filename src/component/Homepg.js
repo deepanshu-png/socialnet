@@ -1,19 +1,15 @@
 import React from 'react';
-import Image from 'react-bootstrap/Image'
 import {Container,Col,Row} from 'react-bootstrap';
 import {Button,ButtonGroup,DropdownButton,Dropdown} from 'react-bootstrap';
 import Badge from 'react-bootstrap/Badge'
 import Post from './Post.js'
-import User from './User.js'
 import Profile from './Profile.js'
 import Pending from './Pending.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListGroup from 'react-bootstrap/ListGroup'
 import axios from 'axios'
 import {Navbar,Nav} from 'react-bootstrap'
-import {Form,FormControl} from 'react-bootstrap'
 import SearchBar from './SearchBar.js'
-import ip from './ip.js';
 import {IoMdBulb,IoIosMailUnread,IoIosSettings,IoIosAperture,IoIosHome,IoLogoSnapchat,IoIosFootball,IoMdSettings} from "react-icons/io";
 import Card from 'react-bootstrap/Card'
 import Message from './Message.js'
@@ -25,13 +21,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
-  useParams,
-  Redirect,
-  useHistory,
-  HashRouter
+  Link
 } from "react-router-dom";
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
+
 class Homepg extends React.Component {
 
 constructor(props) {
@@ -56,7 +49,7 @@ this.newMessage=this.newMessage.bind(this)
     axios.post('http://'+ip.ip+':'+ip.PORT+'/notification', {
       user:localStorage.id
     }).then(res=>{console.log("notification",res);
-      if (res.data.length!=0) {
+      if (res.data.length!==0) {
         this.notification(res.data)
       }}
     )
@@ -90,23 +83,6 @@ newMessage(name){
     });
   }
 
-//  componentDidMount(){
-//  if(window.innerWidth<600){
-//  this.setState({screen:"",display:"none",button:''})
-//  console.log(this.state.screen,window.innerWidth,"if")
-//  }
-// else  { console.log(this.state.screen);this.setState({screen:""})}
-// }
-// msg(){
-// if(this.state.display==""){
-// this.setState({display:"none"})
-// }
-// else {
-//   this.setState({display:""})
-
-// }
-//}
-
   render() {
     console.log(this.props);
     const You=(props)=>{
@@ -137,13 +113,13 @@ console.log(this.props);
       <ButtonGroup size="lg">
 
      <DropdownButton size="lg" variant="primary" onClick={this.handleClick} title={<><IoMdBulb /><Badge variant={this.state.notification?"success":"primary"}>{this.state.notificationnumber}</Badge></>} >
-       {this.state.notificationnumber==0?<Dropdown.Item>{"No new Notification"}</Dropdown.Item>:this.state.notification.map((txt)=><Dropdown.Item>{txt.name}{" sent you a friend request"}</Dropdown.Item>)
+       {this.state.notificationnumber===0?<Dropdown.Item>{"No new Notification"}</Dropdown.Item>:this.state.notification.map((txt)=><Dropdown.Item>{txt.name}{" sent you a friend request"}</Dropdown.Item>)
        }
        </DropdownButton>
           <DropdownButton  size="lg" variant="primary" onClick={()=>this.setState({
             messagenumber:0
-          })} title={<><IoIosMailUnread /><Badge variant={this.state.messagenumber==0?"primary":"success"}>{this.state.messagenumber}</Badge></>}>
-            {this.state.messageupdate==0?<Dropdown.Item>{"No new message request"}</Dropdown.Item>:this.state.message.map((txt)=><Dropdown.Item>{txt}{" requested to chat"}</Dropdown.Item>)
+          })} title={<><IoIosMailUnread /><Badge variant={this.state.messagenumber===0?"primary":"success"}>{this.state.messagenumber}</Badge></>}>
+            {this.state.messageupdate===0?<Dropdown.Item>{"No new message request"}</Dropdown.Item>:this.state.message.map((txt)=><Dropdown.Item>{txt}{" requested to chat"}</Dropdown.Item>)
             }
           </DropdownButton>
           <DropdownButton size="lg" as={ButtonGroup} variant="primary" title=<IoIosSettings /> id="bg-nested-dropdown">

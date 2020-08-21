@@ -1,18 +1,13 @@
 import React from 'react';
-import io from 'socket.io-client';
 import {Container,Col,Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image'
-import {IoIosCheckmark} from "react-icons/io";
-import { IoIosAperture } from "react-icons/io";
-import {BrowserRouter,Link} from 'react-router-dom';
 import {Form} from 'react-bootstrap'
-import {Redirect,useHistory} from 'react-router-dom';
 import {IoIosPerson} from 'react-icons/io';
 import sky from './images/sky.jpg'
-import ip from './ip.js';
 const axios = require('axios');
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 
 class Login extends React.Component{
 constructor(props){super(props);
@@ -23,7 +18,7 @@ this.handleChange2=this.handleChange2.bind(this);}
 handleSubmit(e,props){
 var id=this.state.name;
 const form = e.currentTarget;
-if (form.checkValidity() === false) {console.log("here");
+if (form.checkValidity()===false) {console.log("here");
 e.preventDefault();
 e.stopPropagation();
 }else {console.log("here");
@@ -36,7 +31,7 @@ e.stopPropagation();
     .then((response)=>{
       console.log(response);
 
-    if(response.data.status=="verified"){
+    if(response.data.status==="verified"){
       console.log("here");
     props.handler(response.data.id);
   } }

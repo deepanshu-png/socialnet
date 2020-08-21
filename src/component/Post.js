@@ -1,16 +1,15 @@
 import React from 'react';
-import {Container,Col,Row,Form,FormControl} from 'react-bootstrap';
+import {Col,Row} from 'react-bootstrap';
 import {IoMdThumbsUp,IoMdText,IoIosShareAlt,IoMdTrash} from 'react-icons/io';
 import Card from 'react-bootstrap/Card'
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import {Tooltip,OverlayTrigger} from 'react-bootstrap'
+import {Tooltip} from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import Modal from 'react-bootstrap/Modal'
 import Comment from './Comment.js'
-import ip from './ip.js';
 import axios from 'axios'
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 
 class Post extends React.Component{
 constructor(props){

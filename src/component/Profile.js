@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image'
-import ip from './ip.js';
 const axios = require('axios');
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 
 class Profile extends React.Component{
 constructor(props){
@@ -19,7 +19,7 @@ this.props.name(res.data.name);})
 }
   render(){
 
-  return(<Image src={this.state.image} style={{height:'auto',width:'100%'}} style={{borderRadius:"20px"}} fluid/>)
+  return(<Image src={this.state.image} style={{height:'auto',width:'100%',borderRadius:"20px"}} fluid/>)
   }
 
   }

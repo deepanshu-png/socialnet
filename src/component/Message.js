@@ -1,15 +1,13 @@
 import Image from 'react-bootstrap/Image'
 import React from 'react';
 import {Container,Col,Row,OverlayTrigger,Popover} from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Chat from './Chat.js'
-import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import io from 'socket.io-client';
-import ip from './ip.js';
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 const socket = io('http://'+ip.ip+':'+ip.PORT+'/chat');
 
 class Message extends React.Component {
@@ -41,12 +39,12 @@ class Message extends React.Component {
   }
  else  {console.log(this.state.screen,window.innerWidth,"else"); this.setState({popover:"left"})}
   var id=this.state.id
-  if(localStorage.fetch!=1){socket.emit("/friends",this.state.id);
+  if(localStorage.fetch!==1){socket.emit("/friends",this.state.id);
   socket.on("friends",(res)=>{
   var i=0;
   var len=res.length
   console.log();
-if (len==0) {
+if (len===0) {
   this.setState({
     empty:true
   });

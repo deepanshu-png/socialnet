@@ -1,11 +1,11 @@
 import React from 'react'
 import Image from 'react-bootstrap/Image'
 import {Row,Col} from 'react-bootstrap'
-import ip from './ip.js'
 import {IoIosCheckmarkCircle} from 'react-icons/io'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+var ip={ip:process.env.REACT_APP_PUBLIC_URL,PORT:process.env.REACT_APP_PORT}
 
 class Pending extends React.Component{
   constructor(props){
@@ -15,8 +15,8 @@ class Pending extends React.Component{
 componentDidMount(){
   try {
     axios.post('http://'+ip.ip+':'+ip.PORT+"/pending",{user:localStorage.id}).then(
-    res=>{console.log(res.data=='');
-      if (res.data=='') {
+    res=>{console.log(res.data==='');
+      if (res.data==='') {
 
         this.setState({
           pending:false
@@ -48,7 +48,7 @@ componentDidMount(){
       <Card body style={{boxShadow:"lightgrey 0px 0px 21px",borderRadius:"12px"}}> <Row><Col><Image src={txt.image} height="50px" width="50px"/>{' '}{txt.name}{" Sent you a friend request"}</Col><Col md={{ span: 3 }}><Button style={{marginRight:"0px"}}variant={this.state.status[index]?"success":"primary"} onClick={()=>{
           axios.post('http://'+ip.ip+':'+ip.PORT+"/conformfriend",{addid:localStorage.id,senderid:txt._id}).then(
           res=>{
-            if (res.data="success") {
+            if (res.data==="success") {
               var status=this.state.status;
               status[index]=true
               this.setState({
